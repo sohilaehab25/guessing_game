@@ -15,10 +15,17 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.message').textContent = '❌❌ There is no number';
   } else if (guess === secreteNumber) {
     document.querySelector('.message').textContent = '🎉 Your number is correct!';
+    document.querySelector('.number').textContent = secreteNumber;
+    document.querySelector('body').style.backgroundColor = '#c5c5c5';
+    document.querySelector('.number').style.width = '500px';
+
+
     if (score > highestScore) {
       highestScore = score;
       document.querySelector('.highscore').textContent = highestScore;
     }
+
+    //when guess is too hiegh
   } else if (guess > secreteNumber) {
     document.querySelector('.message').textContent = '📉 Your number is higher than the secret number';
     if (score > 1) {
@@ -28,6 +35,8 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.message').textContent = '💥 You lost the game!';
       document.querySelector('.score').textContent = 0;
     }
+
+    //when guess is too low
   } else if (guess < secreteNumber) {
     document.querySelector('.message').textContent = '📈 Your number is lower than the secret number';
     if (score > 1) {
